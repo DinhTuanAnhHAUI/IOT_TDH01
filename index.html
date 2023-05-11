@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="iot_1.css">
+    <title>IOT_system_1</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body  style="background-color: rgb(6, 25, 73);;">
+<div class="container">
+    <div class ="navbar">
+
+    </div>
+    <div class="container1" > 
+        <div class="tieu_de"> 
+            TDH_K15
+        </div>
+        <button name="button1" type = "button" onclick="location.href='index.html'" class="bt1" style="background-color: aqua;"> HOME</button>
+        <button name="page1" type = "button" onclick="location.href='page1.html'" class="bt1"> PAGE1</button>
+        <button name="page2" type = "button" onclick="location.href='page2.html'" class="bt1"> PAGE2</button>
+        <button name="page3" type = "button" onclick="location.href='page3.html'" class="bt1"> PAGE3</button>
+        
+
+    </div> 
+    
+<div class="container2">
+    <div class ="energy_consumption1">
+        <h1 class="content">Energy consumption</h1>
+        <canvas id="Chart1"></canvas>
+    </div>
+    <div class ="energy_consumption2">
+        <h1 class="content">Energy consumption</h1>
+        <canvas id="Chart2"></canvas>
+    </div>
+    <div class ="current_Ampe">
+        <h1 class="content"> Current(Amperage) </h1>
+    </div>
+    <div class="voltage">
+        <h1 class="content">Voltage</h1>
+    </div>
+    <div class="towerA tower ">
+        <div class="tow" style="background: rgb(27,71,132);">
+            <h2 class="content_tow">TowerA</h2>
+        </div>
+        <div class="vol" style="background: rgb(27,71,132);">
+                <h2 class="content_tow">VOLTAGE</h2>
+        </div>
+        <div class="fre" style="background: rgb(27,71,132);">
+                <h2 class="content_tow">FREQUENCY</h2>
+        </div>
+        <div class ="pow" style="background: rgb(27,71,132);">
+                <h2 class="content_tow">POWER</h2>
+        </div>
+        <div class="cur" style="background: rgb(27,71,132);">
+                <h2 class="content_tow">CURRENT</h2>
+        </div>
+    </div>
+    <div class="towerB tower">
+        <div class="tow" style="background: rgb(37,77,89);">
+            <h2 class="content_tow">TowerB</h2>
+        </div>
+        <div class="vol" style="background:rgb(37,77,89);">
+                <h2 class="content_tow" >VOLTAGE</h2>
+        </div>
+        <div class="fre" style="background:rgb(37,77,89);">
+                <h2 class="content_tow">FREQUENCY</h2>
+        </div>
+        <div class ="pow" style="background:rgb(37,77,89);">
+                <h2 class="content_tow">POWER</h2>
+        </div>
+        <div class="cur" style="background:rgb(37,77,89);">
+                <h2 class="content_tow">CURRENT</h2>
+        </div>
+    </div>
+    <div class="towerC tower">
+        <div class="tow" style="background: rgb(77,48,79);">
+            <h2 class="content_tow">TowerC</h2>
+        </div>
+        <div class="vol" style="background: rgb(77,48,79);">
+                <h2 class="content_tow">VOLTAGE</h2>
+        </div>
+        <div class="fre" style="background: rgb(77,48,79);">
+                <h2 class="content_tow">FREQUENCY</h2>
+        </div>
+        <div class ="pow" style="background: rgb(77,48,79);">
+                <h2 class="content_tow">POWER</h2>
+        </div>
+        <div class="cur" style="background: rgb(77,48,79);">
+                <h2 class="content_tow">CURRENT</h2>
+        </div>
+    </div>
+</div>
+
+
+</div>
+    <script>
+        size: '14'
+        var ctx2 = document.getElementById('Chart2').getContext('2d');
+        var Chart2 = new Chart(ctx2, {
+            type: 'doughnut',
+            data: {
+                labels: ['Red', 'Blue', 'Yellow'],
+                datasets: [{
+                    data: [12, 19, 3],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.7)',
+                        'rgba(54, 162, 235, 0.7)',
+                        'rgba(255, 206, 86, 0.7)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                cutoutPercentage: 40,
+            }
+        }
+    
+);
+
+    </script>
+    <script>
+        var ctx1 = document.getElementById('Chart1').getContext('2d');
+        var Chart1 = new Chart(ctx1, {
+    type: 'line',
+    data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+        datasets: [{
+            label: 'Sales',
+            data: [1200, 1500, 1800, 2000, 2200, 2400],
+            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+            borderColor: 'rgba(255, 99, 132, 1)',
+            borderWidth: 1
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        title: {
+            display: true,
+            text: 'Monthly Sales'
+        },
+        legend: {
+            display: true,
+            position: 'bottom'
+        },
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        },
+        tooltips: {
+            mode: 'index',
+            intersect: false
+        },
+        animation: {
+            duration: 1000,
+            easing: 'easeInOutQuad'
+        }
+    }
+});
+
+    </script>
+</body>
+</html>
